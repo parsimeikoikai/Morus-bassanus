@@ -88,7 +88,7 @@ class Vectorizer:
 
     def read_documents(self) -> List[Document]:
         """
-        Loads the emails with a multithread fashion
+        Loads the documents with a multithread fashion
         """
         data_files = []
         data_files.extend(
@@ -106,6 +106,9 @@ class Vectorizer:
         return docs
 
     def vectorize(self):
+        """
+        Vectorize the data and embed it to the db
+        """
         documents = self.read_documents()
         logger.info(f"Loaded {len(documents)} new documents")
         chunks = self.splitter.split_documents(documents)
