@@ -1,0 +1,25 @@
+S3:
+  BUCKET: "gannet-light"  
+OpenAI:
+  temperature: 0.1
+  model_name: "gpt-4"
+  
+splitter:
+  name: "RecursiveCharacterTextSplitter"
+  args:
+    chunk_size: 1500
+    chunk_overlap: 50
+
+chain:
+  chain_type: "stuff"
+  verbose: True
+  
+weaviate:
+  index_name: "Gannet"
+  text_key: "text"
+  attributes: ["source"]
+  create_schema_if_missing: False
+  alpha: 0.9
+  k: 10
+
+weaviate_url: "http://weaviate:9085"

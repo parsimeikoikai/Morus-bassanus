@@ -1,0 +1,15 @@
+venv
+*.pyc
+staticfiles
+.env
+../.idea
+.vscode
+*.gz
+*.tsv
+__pycache__
+.DS_Store
+.xlsx
+/data
+/Embeddings
+.idea
+*.log
