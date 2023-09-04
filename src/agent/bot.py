@@ -39,7 +39,6 @@ class QA:
 
     def __call__(self, query):
         res = self.chain({"query": query})
-        logger.info(res)
         answer = res['result']
         sources = res["source_documents"]
         return {"answer": answer.strip(), "sources": [x.metadata["source"] for x in sources]}
