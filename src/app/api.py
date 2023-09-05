@@ -20,9 +20,12 @@ async def lifespan(app: FastAPI):
 
 app = FastAPI(lifespan=lifespan)
 
+@app.get("/")
+async def root():
+    return {"message": "Welcome to our humanitarian assistant light version."}
 
 @app.post("/ask")
-async def root(data: Query) -> Answer:
+async def ask(data: Query) -> Answer:
     """
      This endpoint returns takes a user query an returns an answer from LLM.
 

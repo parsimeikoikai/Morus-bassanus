@@ -16,6 +16,9 @@ This repo is for deploying the light version of AWS GANNET application
 3- Visit http://0.0.0.0:9000/docs to see the Swager UI of the appliation.
 
 ### Endpoints
+- `/`
+  - Display an introductory message
+  
 - `/ask` 
   - Takes a query and returns an answer and the sources used to answer the query.
   - Input:
