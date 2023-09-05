@@ -17,7 +17,8 @@ class S3:
         self.s3 = boto3.Session(
         aws_access_key_id=get_settings().aws_key_id,
         aws_secret_access_key=get_settings().aws_secret_key,
-        aws_session_token=get_settings().aws_session_token)
+        aws_session_token=get_settings().aws_session_token
+        )
 
         with open(CONFIG_PATH, 'r') as stream:
             try:

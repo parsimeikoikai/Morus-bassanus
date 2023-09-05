@@ -29,7 +29,7 @@ class QA:
         client = weaviate.Client(url=configs["weaviate_url"], timeout_config=1000, startup_period=15)
         self.retrieval = WeaviateHybridSearchRetriever(client=client, **configs["weaviate"])
 
-        self.from_chain = load_qa_with_sources_chain(llm=self.llm, **configs['chain'], prompt = BOT_PROMPT)
+        self.from_chain = load_qa_with_sources_chain(llm=self.llm, **configs['chain'], prompt = BOT_PROMPT, document_variable_name="context")
         self.chain = RetrievalQA(combine_documents_chain=self.from_chain, return_source_documents=True,
                                  retriever=self.retrieval)
 
