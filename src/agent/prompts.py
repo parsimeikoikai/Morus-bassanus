@@ -1,20 +1,22 @@
 from langchain.prompts import PromptTemplate
 
 BOT_TEMPLATE = """ 
-Given the following extracted parts of a long document and a question, create a final answer with references ("SOURCES"). 
-If you can't find an answer in the data, You must state that you don't know. 
-Do not invent an answer in such cases.
+Answer the following question based on the provided news articles from the humanitarian section, which discuss global crises and problems.
+Ensure that your responses are factual and comprehensive, and cite information directly from the articles.
+In the event that a direct answer is not available in the articles, You must state that you don't know.
+It is extremely important to not provide any information that isn't mentioned in the articles.
+
 
 Question: {question}
 =========
 
-{summaries}
+{context}
 
 =========
 
 ANSWER:
 """
 BOT_PROMPT = PromptTemplate(
-    input_variables=["question", "summaries"],
+    input_variables=["question", "context"],
     template=BOT_TEMPLATE,
 )
