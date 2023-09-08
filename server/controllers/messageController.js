@@ -13,7 +13,8 @@ module.exports.getMessages = async (req, res, next) => {
       return {
         fromSelf: msg.sender.toString() === from,
         question: msg.message.text,
-        answer : msg.message.answer
+        answer : msg.message.answer,
+        sources: msg.message.sources
       };
     });
     res.json(projectedMessages);
