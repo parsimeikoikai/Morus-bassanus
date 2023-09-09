@@ -1,5 +1,8 @@
-from langchain.prompts import PromptTemplate
+# Ignoring Langchain warnings with regex templates
+import warnings
+warnings.filterwarnings("ignore", category=DeprecationWarning)
 
+from langchain import PromptTemplate
 BOT_TEMPLATE = """ 
 Answer the following question based on the provided news articles from the humanitarian section, which discuss global crises and problems.
 Ensure that your responses are factual and comprehensive, and cite information directly from the articles.
