@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 import Logo from "../assets/dfs_logo.svg";
+import Plus from "../assets/plus.svg";
 export default function Contacts({ contacts, changeChat }) {
   const [currentUserName, setCurrentUserName] = useState(undefined);
   const [currentUserImage, setCurrentUserImage] = useState(undefined);
@@ -23,36 +24,38 @@ export default function Contacts({ contacts, changeChat }) {
       {currentUserImage && currentUserImage && (
         <Container>
           <div className="brand">
-          <img src={Logo} alt="DFS" />
+            <img src={Logo} alt="DFS" />
           </div>
           <div className="contacts">
             {contacts.map((contact, index) => {
               return (
                 <div
                   key={contact._id}
-                  className={`contact ${
-                    index === currentSelected ? "selected" : ""
-                  }`}
+                  className={`contact ${index === currentSelected ? "selected" : ""
+                    }`}
                   onClick={() => changeCurrentChat(index, contact)}
                 >
-                  <div className="avatar">
-                    <img
-                      src={`data:image/svg+xml;base64,${contact.avatarImage}`}
-                      alt=""
-                    />
-                  </div>
-                  <div className="username">
-                    <h3>New Chat</h3>
-                  </div>
+                  <buttton className="sidebarButton">
+                    <img src={Plus} alt="DFS" /> &nbsp;New Chat
+                  </buttton>
                 </div>
               );
             })}
+            <br />
+
             <div className="sidebarText">
-              <h4>
               Your Humanitarian companion : Instant Support and informed Decision-making
-              </h4>
             </div>
+            <div className="disclaimer">
+              <h4><b>Disclaimer</b></h4>
+              The current database only contains information regarding floods and droughts in South Sudan.
+
+              Please ask questions related to this topic.
+
+            </div>
+
           </div>
+
           <div className="current-user">
             <div className="avatar">
               <img
@@ -61,9 +64,8 @@ export default function Contacts({ contacts, changeChat }) {
               />
             </div>
             <div className="username">
-            <h4>{currentUserName}</h4>
-            <h4>{currentEmail}</h4>
-            
+              <h4>{currentUserName}</h4>
+              <h4>{currentEmail}</h4>
             </div>
           </div>
         </Container>
@@ -75,7 +77,7 @@ const Container = styled.div`
   display: grid;
   grid-template-rows: 10% 75% 15%;
   overflow: hidden;
-  background-color: #dbe1e6;
+  background: var(--gray-100, #F2F4F7);
   .brand {
     display: flex;
     align-items: center;
@@ -89,6 +91,7 @@ const Container = styled.div`
       text-transform: uppercase;
     }
   }
+  
   .contacts {
     display: flex;
     flex-direction: column;
@@ -104,7 +107,7 @@ const Container = styled.div`
       }
     }
     .contact {
-      background-color: #607889;
+      background: var(--gray-100, #F2F4F7);
       min-height: 5rem;
       cursor: pointer;
       width: 90%;
@@ -126,19 +129,19 @@ const Container = styled.div`
       }
     }
     .selected {
-      background-color: #9a86f3;
+      background: var(--gray-100, #F2F4F7);
     }
   }
 
   .current-user {
-    background-color: #dbe1e6;
+    background: var(--gray-100, #F2F4F7);
     display: flex;
     justify-content: center;
     align-items: center;
     gap: 1rem;
     .avatar {
       img {
-        height: 4rem;
+        height: 2.5rem;
         max-inline-size: 100%;
       }
     }
@@ -158,10 +161,49 @@ const Container = styled.div`
   }
   .sidebarText
   {
-    h4 {
-      font-size: 1rem;
-      color:#171d21;
-    }
-    padding: 50px 19px;
+    color: var(--gray-600, #475467);
+    text-align: center;
+    
+    /* Text xs/Regular */
+    font-family: Inter;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 18px; /* 150% */
+  }
+  .sidebarButton {
+    display: flex;
+    margin : auto;
+    padding: 8px 70px;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    align-self: stretch;
+    border-radius: 8px;
+    border: 1px solid var(--primary-600, #7F56D9);
+    background: var(--primary-600, #7F56D9);
+    color : #ffff
+    /* Shadow/xs */
+    box-shadow: 0px 1px 2px 0px rgba(16, 24, 40, 0.05);
+    color: var(--base-white, #FFF);
+
+    /* Text sm/Semibold */
+    font-family: Inter;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 20px; /* 142.857% */
+  }
+  .disclaimer
+  {
+    color: var(--gray-600, #475467);
+    text-align: center;
+    /* Text xs/Regular */
+    font-family: Inter;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 18px; /* 150% */
+    margin-top : 11vh
   }
 `;

@@ -83,9 +83,6 @@ export default function Login() {
             onChange={(e) => handleChange(e)}
           />
           <button type="submit">Log In</button>
-          <span >
-            Don't have an account ? <Link to="/register">Create One.</Link>
-          </span>
         </form>
       </FormContainer>
       <ToastContainer />
@@ -108,6 +105,7 @@ const FormContainer = styled.div`
     align-items: center;
     gap: 1rem;
     justify-content: center;
+    margin-top : -4vh;
     img {
       height: 4rem;
     }
@@ -125,6 +123,8 @@ const FormContainer = styled.div`
     border-radius: 2rem;
     padding: 5rem;
     color: black;
+    width : 45vh
+
   }
   input {
     background-color: transparent;
