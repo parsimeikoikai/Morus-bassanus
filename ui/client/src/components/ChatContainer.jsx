@@ -16,7 +16,7 @@ export default function ChatContainer({ currentChat, socket }) {
 
 
   const apiUrl = 'http://52.3.250.51:9000/ask';
-  
+
   useEffect(async () => {
     const data = await JSON.parse(
       localStorage.getItem(process.env.REACT_APP_LOCALHOST_KEY)
@@ -114,7 +114,7 @@ export default function ChatContainer({ currentChat, socket }) {
     <Container>
       <div className="chat-header">
         <div className="user-details">
-
+         <h3>GANNET</h3>
         </div>
 
         <Logout />
@@ -136,9 +136,9 @@ export default function ChatContainer({ currentChat, socket }) {
 
                 </div>
               </article>
-              <article className="msg-container msg-remote" id="msg-0">
+              <article className="msg-container" id="msg-0">
                 <div className="msg-box">
-                  <img className="user-img" id="user-0" src="//gravatar.com/avatar/00034587632094500000000000000000?d=retro" />
+
                   <div className="flr">
                     <div className="messages">
                       <p className="answer-text msg" id="msg-0">
@@ -189,16 +189,13 @@ const Container = styled.div`
     justify-content: space-between;
     align-items: center;
     padding: 0 2rem;
-    background-color: #dae1e7;
+    background-color: #D0D5DD;
     .user-details {
       display: flex;
       align-items: center;
+      font-family: Inter;
+      font-size: 22px;
       gap: 1rem;
-      .avatar {
-        img {
-          height: 3rem;
-        }
-      }
       .username {
         h3 {
           color: white;
@@ -292,11 +289,15 @@ const Container = styled.div`
 }
 .msg {
   display: inline-block;
-  font-size: 11pt;
-  line-height: 13pt;
   color: rgba(255,255,255,.7);
   margin: 0 0 4px 0;
-
+  color: var(--gray-500, #667085);
+  /* Text lg/Regular */
+  font-family: Inter;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 28px; /* 155.556% */
 }
 
 .timestamp {
@@ -312,8 +313,11 @@ const Container = styled.div`
 }
 .msg-self .msg-box {
   border-radius: 6px 0 0 6px;
-  background: #2671ff;
   float: right;
+  border-radius: 8px;
+  background: var(--base-white, #FFF);
+  display: flex;
+  align-items: center;
 }
 .msg-self .user-img {
   margin: 0 0 10px 10px;
@@ -321,10 +325,6 @@ const Container = styled.div`
 .msg-self .msg {
   text-align: right;
 }
-.msg-self .timestamp {
-  text-align: right;
-}
-
 .loading {
   text-align: center;
   font-size: 1.8rem;
@@ -342,6 +342,7 @@ const Container = styled.div`
   }
 }
 
+
 .sources {
   padding: 10px;
   border-radius: 5px;
@@ -355,7 +356,7 @@ font-size: 18px;
 font-style: normal;
 font-weight: 400;
 line-height: 28px; /* 155.556% */
-  margin-bottom: 5px;
+margin-bottom: 5px;
 }
 .sources h3 {
   color: var(--gray-500, #667085);
