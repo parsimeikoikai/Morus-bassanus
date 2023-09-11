@@ -20,6 +20,10 @@ weaviate:
   attributes: ["source"]
   create_schema_if_missing: False
   alpha: 0.9
-  k: 10
+  k: 15
+
+mongodb:
+  url: "mongodb://mongo:27017"
+  db: "chatbot"
 
 weaviate_url: "http://weaviate:9085"

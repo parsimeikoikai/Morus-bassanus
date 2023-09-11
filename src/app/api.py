@@ -56,7 +56,7 @@ async def ask(data: Query) -> Answer:
     }
     """
     try:
-        res = objects["bot"](query=data.query)
+        res = objects["bot"](query=data.query, user_id=data.user_id)
         return Answer(**res)
     
     except Exception as e:
