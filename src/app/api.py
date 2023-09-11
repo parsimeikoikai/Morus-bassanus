@@ -1,5 +1,4 @@
 import logging
-import warnings
 
 from ..configs.schemas import *
 from ..agent.bot import QA
@@ -16,8 +15,8 @@ objects = {}
 origins = [
     "http://localhost",
     "http://localhost:3000",
-    "https://localhost",
-    "https://localhost:3000",
+    "http://52.3.250.51:3000",
+
 ]
 
 @asynccontextmanager

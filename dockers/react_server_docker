@@ -1,0 +1,8 @@
+FROM node:latest
+
+WORKDIR /app
+
+COPY ui/server/ /app/
+RUN yarn install 
+EXPOSE 5100
+CMD ["yarn", "start"]

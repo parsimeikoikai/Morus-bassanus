@@ -1,7 +1,8 @@
 import csv
+import logging
+
 from langchain.document_loaders.csv_loader import CSVLoader
 from langchain.docstore.document import Document
-import logging
 
 from ..logging import setup_logger
 

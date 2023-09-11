@@ -3,6 +3,7 @@ version: '3.4'
 services:
   backend:
     build:
+      context: .
       dockerfile: dockers/server_docker
     env_file:
       - .env
@@ -46,7 +47,7 @@ services:
     env_file:
       - .env
     environment:
-      OPENAI_APIKEY: '${openai_api_key}'
+      OPENAI_APIKEY: ${openai_api_key}
       QUERY_DEFAULTS_LIMIT: 25
       AUTHENTICATION_ANONYMOUS_ACCESS_ENABLED: 'true'
       PERSISTENCE_DATA_PATH: '/var/lib/weaviate'
@@ -54,6 +55,50 @@ services:
       ENABLE_MODULES: 'text2vec-openai'
       CLUSTER_HOSTNAME: 'node1'
 
+  frontend:
+    build:
+      context: .
+      dockerfile: dockers/react_client_docker
+    env_file:
+      - .env
+    environment:
+      REACT_APP_LOCALHOST_KEY: ${react_app_localhost_key}
+    ports:
+      - 3000:3000
+    depends_on:
+      - backend
+      - react_server
+      - mongo
+
+  react_server:
+    build:
+      context: .
+      dockerfile: dockers/react_server_docker
+    env_file:
+      - .env
+    restart: always
+    environment:
+      PORT: ${react_server_port}
+      MONGO_URL: mongodb://mongo:27017/chatbot
+    ports:
+      - 5100:5100
+    depends_on:
+      - mongo
+
+  mongo:
+    image: mongo
+    restart: always
+    env_file:
+      - .env
+    environment:
+      MONGO_INITDB_DATABASE: ${INIT_DATABASE}
+    volumes:
+      - MongoDB:/data/db
+    ports:
+      - 27017:27017
+
+
 volumes:
   Embeddings:
+  MongoDB:
 ...

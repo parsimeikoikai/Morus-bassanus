@@ -3,7 +3,6 @@ from pydantic_settings import BaseSettings, SettingsConfigDict
 from typing import Optional
 
 
-
 class Settings(BaseSettings):
     aws_key_id: Optional[str] = None
     aws_secret_key: Optional[str] = None
