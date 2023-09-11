@@ -74,6 +74,7 @@ class Vectorizer:
                 raise yaml.YAMLError
         self.splitter = getattr(text_splitter, configs['splitter']['name'])(**configs['splitter']['args'])
         self.client = weaviate.Client(url="http://weaviate:9085", timeout_config=(10000, 10000))
+        self.client.batch.configure(batch_size=10) 
         self.db = WeaviateHybridSearchRetriever(client=self.client, **configs['weaviate'])
         try:
             self.client.is_live()
