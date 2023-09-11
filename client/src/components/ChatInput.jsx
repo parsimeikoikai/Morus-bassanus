@@ -49,7 +49,7 @@ const Container = styled.div`
   display: grid;
   align-items: center;
   grid-template-columns: 5% 95%;
-  background: linear-gradient(353deg, rgba(83, 56, 158, 0.28) -43.14%, rgba(127, 86, 217, 0.00) 70.31%);
+  background-color: #dae1e7;
   padding: 0 2rem;
   @media screen and (min-width: 720px) and (max-width: 1080px) {
     padding: 0 1rem;
@@ -111,16 +111,9 @@ const Container = styled.div`
       border: none;
       padding-left: 1rem;
       font-size: 1.2rem;
-      color: var(--gray-500, #667085);
 
-      /* Text md/Regular */
-      font-family: Inter;
-      font-size: 16px;
-      font-style: normal;
-      font-weight: 400;
-      line-height: 24px; /* 150% */
       &::selection {
-        var(--gray-500, #667085);
+        background-color: #9a86f3;
       }
       &:focus {
         outline: none;

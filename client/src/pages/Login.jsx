@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import styled from "styled-components";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import Logo from "../assets/dfs_logo.svg";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import { loginRoute, createAnalystAccount } from "../utils/APIRoutes";
+import { loginRoute } from "../utils/APIRoutes";
 
 export default function Login() {
   const navigate = useNavigate();
@@ -18,18 +18,9 @@ export default function Login() {
     theme: "dark",
   };
   useEffect(() => {
-    async function createMainAcc() {
-      try {
-        const response = await axios.get(createAnalystAccount);
-      } catch (error) {
-        console.error('Error creating main account:', error);
-      }
-    }
-    createMainAcc();
     if (localStorage.getItem(process.env.REACT_APP_LOCALHOST_KEY)) {
       navigate("/");
     }
-
   }, []);
 
   const handleChange = (event) => {
@@ -92,10 +83,11 @@ export default function Login() {
             onChange={(e) => handleChange(e)}
           />
           <button type="submit">Log In</button>
+          <span >
+            Don't have an account ? <Link to="/register">Create One.</Link>
+          </span>
         </form>
-
       </FormContainer>
-
       <ToastContainer />
     </>
   );
@@ -116,7 +108,6 @@ const FormContainer = styled.div`
     align-items: center;
     gap: 1rem;
     justify-content: center;
-    margin-top : -4vh;
     img {
       height: 4rem;
     }
@@ -134,8 +125,6 @@ const FormContainer = styled.div`
     border-radius: 2rem;
     padding: 5rem;
     color: black;
-    width : 45vh
-
   }
   input {
     background-color: transparent;

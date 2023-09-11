@@ -18,9 +18,8 @@ export default function Logout() {
   };
   return (
     <Button onClick={handleClick}>
-      &nbsp;Log out
+      <BiPowerOff />
     </Button>
-
   );
 }
 
@@ -34,17 +33,9 @@ const Button = styled.button`
   dorder
   border: none;
   cursor: pointer;
-  border: 0.1rem solid #7F56D9;
+  border: 0.1rem solid red;
   svg {
-    border-radius: 8px;
-  border: 1px solid var(--primary-600, #7F56D9);
-  background: var(--primary-600, #7F56D9);
-
-  /* Shadow/xs */
-  box-shadow: 0px 1px 2px 0px rgba(16, 24, 40, 0.05);
-  }
-  .logout-text
-  {
-    color : blue
+    font-size: 1.3rem;
+    color: red;
   }
 `;

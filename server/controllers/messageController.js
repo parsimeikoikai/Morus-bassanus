@@ -41,34 +41,3 @@ module.exports.addMessage = async (req, res, next) => {
     next(ex);
   }
 };
-module.exports.deleteMessages = async (req, res, next) => {
- 
-  try {
-    const { sender} = req.body;
-
-    const data = await Messages.deleteMany({
-      $and: [
-        {
-          $or: [
-            {
-              sender: sender,
-            }
-          ],
-        },
-        {
-          users: {
-            $all: [sender],
-          },
-        }
-      ],
-    });
-
-    // Handle the result of the delete operation if needed
-    //console.log(`${data.deletedCount} messages deleted`);
-    // Send a response to the client if desired
-    res.status(200).json({ message: `${data.deletedCount} messages deleted` });
-  } catch (ex) {
-    next(ex);
-  }
-};
-
