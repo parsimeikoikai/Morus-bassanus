@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import styled from "styled-components";
-import { useNavigate, Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import Logo from "../assets/dfs_logo.svg";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import { loginRoute } from "../utils/APIRoutes";
+import { loginRoute, createAnalystAccount } from "../utils/APIRoutes";
 
 export default function Login() {
   const navigate = useNavigate();
@@ -18,9 +18,18 @@ export default function Login() {
     theme: "dark",
   };
   useEffect(() => {
+    async function createMainAcc() {
+      try {
+        const response = await axios.get(createAnalystAccount);
+      } catch (error) {
+        console.error('Error creating main account:', error);
+      }
+    }
+    createMainAcc();
     if (localStorage.getItem(process.env.REACT_APP_LOCALHOST_KEY)) {
       navigate("/");
     }
+
   }, []);
 
   const handleChange = (event) => {
@@ -84,7 +93,9 @@ export default function Login() {
           />
           <button type="submit">Log In</button>
         </form>
+
       </FormContainer>
+
       <ToastContainer />
     </>
   );

@@ -2,6 +2,10 @@ import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 import Logo from "../assets/dfs_logo.svg";
 import Plus from "../assets/plus.svg";
+import {  deleteMessage } from "../utils/APIRoutes";
+import axios from "axios";
+
+
 export default function Contacts({ contacts, changeChat }) {
   const [currentUserName, setCurrentUserName] = useState(undefined);
   const [currentUserImage, setCurrentUserImage] = useState(undefined);
@@ -15,10 +19,20 @@ export default function Contacts({ contacts, changeChat }) {
     setCurrentUserName(data.username);
     setCurrentUserImage(data.avatarImage);
   }, []);
-  const changeCurrentChat = (index, contact) => {
+  const changeCurrentChat = async (index, contact) => {
     setCurrentSelected(index);
     changeChat(contact);
   };
+  const removeCurrentChat= async(index, contact) =>{
+    const data = await JSON.parse(
+      localStorage.getItem(process.env.REACT_APP_LOCALHOST_KEY)
+    );
+    const response = await axios.post(deleteMessage, {
+      sender: data._id,
+    });
+    setCurrentSelected(index);
+    changeChat(contact);
+  }
   return (
     <>
       {currentUserImage && currentUserImage && (
@@ -48,9 +62,10 @@ export default function Contacts({ contacts, changeChat }) {
             </div>
             <div className="disclaimer">
               <h4><b>Disclaimer</b></h4>
-              The current database only contains information regarding floods and droughts in South Sudan.
+              The current database only contains information regarding floods and droughts in South Sudan for demo purposes only.
 
-              Please ask questions related to this topic.
+              Please ask questions related to this topic
+
 
             </div>
 
@@ -64,8 +79,8 @@ export default function Contacts({ contacts, changeChat }) {
               />
             </div>
             <div className="username">
-              <h4>{currentUserName}</h4>
-              <h4>{currentEmail}</h4>
+            <h4>{currentUserName && `${currentUserName.charAt(0).toUpperCase()}${currentUserName.slice(1)}`}</h4>
+            <h4>{currentEmail}</h4>
             </div>
           </div>
         </Container>
