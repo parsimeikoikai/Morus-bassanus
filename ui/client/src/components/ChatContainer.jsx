@@ -4,7 +4,7 @@ import ChatInput from "./ChatInput";
 import Logout from "./Logout";
 import { v4 as uuidv4 } from "uuid";
 import axios from "axios";
-import { sendMessageRoute, recieveMessageRoute } from "../utils/APIRoutes";
+import { sendMessageRoute, recieveMessageRoute ,deleteMessage} from "../utils/APIRoutes";
 
 export default function ChatContainer({ currentChat, socket }) {
 
@@ -16,7 +16,20 @@ export default function ChatContainer({ currentChat, socket }) {
 
 
   const apiUrl = 'http://52.3.250.51:9000/ask';
-
+  const clearMessages = async () => {
+    const data = await JSON.parse(
+      localStorage.getItem(process.env.REACT_APP_LOCALHOST_KEY)
+    );
+    try {
+      await axios.post(deleteMessage, {
+        sender: data._id
+      });
+      // After successfully clearing messages, you can update the messages state
+      setMessages([]); 
+    } catch (error) {
+      console.error('Error deleting messages:', error);
+    }
+  };
   useEffect(async () => {
     const data = await JSON.parse(
       localStorage.getItem(process.env.REACT_APP_LOCALHOST_KEY)
@@ -25,6 +38,7 @@ export default function ChatContainer({ currentChat, socket }) {
       from: data._id,
       to: currentChat._id,
     });
+    clearMessages();
     setMessages(response.data);
     setIsLoading(false);
   }, [currentChat]);
@@ -49,8 +63,10 @@ export default function ChatContainer({ currentChat, socket }) {
         query: msg,
         user_id :data._id
       };
-
-      const response = await axios.post(apiUrl, requestData);
+      const axiosConfig = {
+        withCredentials: true, // Include credentials (cookies) in the request
+      };
+      const response = await axios.post(apiUrl, requestData, axiosConfig);
       // Handle the successful response here
 
       const newMessage = {
