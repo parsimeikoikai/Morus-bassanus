@@ -62,10 +62,6 @@ module.exports.deleteMessages = async (req, res, next) => {
         }
       ],
     });
-
-    // Handle the result of the delete operation if needed
-    //console.log(`${data.deletedCount} messages deleted`);
-    // Send a response to the client if desired
     res.status(200).json({ message: `${data.deletedCount} messages deleted` });
   } catch (ex) {
     next(ex);
