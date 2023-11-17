@@ -1,5 +1,5 @@
-# AWSGannet-light
-This repo is for deploying the light version of AWS GANNET application
+# Morus-bassanus
+This repo is for deploying the light version of Morus-bassanus application
 
 ## Development Setup
 - In this project we are using python3.11 and poetry as our env manager.
@@ -77,8 +77,8 @@ This repo is for deploying the light version of AWS GANNET application
 Both should be installed and make sure mongodb is running.
 
 ```shell
-git clone https://github.com/koolkishan/chat-app-react-nodejs
-cd Gannet-Dfs
+git clone https://github.com/parsimeikoikai/Morus-bassanus.git
+cd Morus-bassanus
 ```
 Now rename env files from .env.example to .env
 ```shell

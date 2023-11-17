@@ -1,0 +1,13 @@
+{
+    "buildings": [
+        {
+            "id": "building_id_1",
+            "name": "Building A"
+        },
+        {
+            "id": "building_id_2",
+            "name": "Building B"
+        },
+        // ... additional buildings
+    ]
+}
