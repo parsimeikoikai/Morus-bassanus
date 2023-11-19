@@ -1,12 +1,11 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import styled from "styled-components";
-import { useNavigate } from "react-router-dom";
-import Logo from "../assets/dfs_logo.svg";
+import Logo from "../assets/morus.png";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { loginRoute, createAnalystAccount } from "../utils/APIRoutes";
-
+import { useNavigate, Link } from "react-router-dom";
 export default function Login() {
   const navigate = useNavigate();
   const [values, setValues] = useState({ username: "", password: "" });
@@ -76,7 +75,7 @@ export default function Login() {
         <form action="" onSubmit={(event) => handleSubmit(event)}>
           <div className="brand">
             <img src={Logo} alt="logo" />
-            <h4>Gannet</h4>
+          
           </div>
           <input
             type="text"
@@ -92,10 +91,12 @@ export default function Login() {
             onChange={(e) => handleChange(e)}
           />
           <button type="submit">Log In</button>
+          <span>
+             New user ? <Link to="/register">Register.</Link>
+          </span>
         </form>
-
       </FormContainer>
-
+   
       <ToastContainer />
     </>
   );

@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import styled from "styled-components";
-import Logo from "../assets/dfs_logo.svg";
+import Logo from "../assets/morus.png";
 import Plus from "../assets/plus.svg";
 import {  deleteMessage } from "../utils/APIRoutes";
 import axios from "axios";
@@ -58,13 +58,11 @@ export default function Contacts({ contacts, changeChat }) {
             <br />
 
             <div className="sidebarText">
-              Your Humanitarian companion : Instant Support and informed Decision-making
+            Your humanitarian companion: providing instant support and facilitating informed decision-making.
             </div>
             <div className="disclaimer">
               <h4><b>Disclaimer</b></h4>
-              The current database only contains information regarding floods and droughts in South Sudan for demo purposes only.
-
-              Please ask questions related to this topic
+              The existing database is designed exclusively for demonstration purposes and encompasses data solely pertaining to floods and droughts in South Sudan. Feel free to pose any questions relevant to this subject matter.
 
 
             </div>

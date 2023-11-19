@@ -1,5 +1,6 @@
 # Morus-bassanus
-This repo is for deploying the light version of Morus-bassanus application
+
+This repo is for deploying the light version of Morus-bassanus providing instant support and facilitating informed decision-making for humanitarians.
 
 ## Development Setup
 - In this project we are using python3.11 and poetry as our env manager.
@@ -65,8 +66,6 @@ This repo is for deploying the light version of Morus-bassanus application
 ## Frontend 
 
 ![login page](./images/login.png)
-
-![home page](./images/home.png)
 
 ## Installation Guide
 

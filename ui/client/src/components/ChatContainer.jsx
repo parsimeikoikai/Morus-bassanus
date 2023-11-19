@@ -14,7 +14,6 @@ export default function ChatContainer({ currentChat, socket }) {
   const [resData, setResData] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
 
-
   const apiUrl = 'http://52.3.250.51:9000/ask';
   const clearMessages = async () => {
     const data = await JSON.parse(
@@ -131,7 +130,7 @@ export default function ChatContainer({ currentChat, socket }) {
     <Container>
       <div className="chat-header">
         <div className="user-details">
-         <h3>GANNET</h3>
+         <h3>MORUS</h3>
         </div>
 
         <Logout />
