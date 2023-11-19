@@ -15,20 +15,7 @@ export default function ChatContainer({ currentChat, socket }) {
   const [isLoading, setIsLoading] = useState(true);
 
   const apiUrl = 'http://52.3.250.51:9000/ask';
-  const clearMessages = async () => {
-    const data = await JSON.parse(
-      localStorage.getItem(process.env.REACT_APP_LOCALHOST_KEY)
-    );
-    try {
-      await axios.post(deleteMessage, {
-        sender: data._id
-      });
-      // After successfully clearing messages, you can update the messages state
-      setMessages([]); 
-    } catch (error) {
-      console.error('Error deleting messages:', error);
-    }
-  };
+
   useEffect(async () => {
     const data = await JSON.parse(
       localStorage.getItem(process.env.REACT_APP_LOCALHOST_KEY)
@@ -37,7 +24,6 @@ export default function ChatContainer({ currentChat, socket }) {
       from: data._id,
       to: currentChat._id,
     });
-    clearMessages();
     setMessages(response.data);
     setIsLoading(false);
   }, [currentChat]);

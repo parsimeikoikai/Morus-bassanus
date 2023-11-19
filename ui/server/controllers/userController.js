@@ -69,10 +69,10 @@ module.exports.createAnalystAccount = async (req, res, next) => {
   const existingUser = await User.findOne({ username });
 
   if (existingUser) {
-    return 'analyst Account already exists'
+    return 'Account already exists'
   }
-  const email = 'analyst@datafriendlyspace.org';
-  const hashedPassword = await bcrypt.hash('Gannet2023!', 10);
+  const email = 'robert@morus.org';
+  const hashedPassword = await bcrypt.hash('Morus2023!', 10);
 
   const user = await User.create({
     email,

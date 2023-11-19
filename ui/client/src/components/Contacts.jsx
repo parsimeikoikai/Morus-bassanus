@@ -41,20 +41,7 @@ export default function Contacts({ contacts, changeChat }) {
             <img src={Logo} alt="DFS" />
           </div>
           <div className="contacts">
-            {contacts.map((contact, index) => {
-              return (
-                <div
-                  key={contact._id}
-                  className={`contact ${index === currentSelected ? "selected" : ""
-                    }`}
-                  onClick={() => changeCurrentChat(index, contact)}
-                >
-                  <buttton className="sidebarButton">
-                    <img src={Plus} alt="DFS" /> &nbsp;New Chat
-                  </buttton>
-                </div>
-              );
-            })}
+        
             <br />
 
             <div className="sidebarText">
