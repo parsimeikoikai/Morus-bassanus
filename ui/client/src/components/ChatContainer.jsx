@@ -16,6 +16,7 @@ export default function ChatContainer({ currentChat, socket }) {
 
   const apiUrl = 'http://52.3.250.51:9000/ask';
 
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   useEffect(async () => {
     const data = await JSON.parse(
       localStorage.getItem(process.env.REACT_APP_LOCALHOST_KEY)
