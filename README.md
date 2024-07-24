@@ -1,6 +1,52 @@
 # Morus-bassanus
 
-This repo is for deploying the light version of Morus-bassanus providing instant support and facilitating informed decision-making for humanitarians.
+## Overview
+
+This repository is for deploying the light version of **Morus-bassanus**, a platform designed to provide instant support and facilitate informed decision-making for humanitarians. The system integrates with various humanitarian sources and leverages advanced AI to enhance crisis response and resource management.
+
+## Key Features
+
+### Crisis Information and Updates
+- **Real-Time Crisis Updates:** Integrated with sources like ReliefWeb to provide real-time updates on ongoing crises, including new developments and key statistics.
+- **Historical Data:** Access to historical data on past crises to provide context and aid in trend analysis.
+
+### Multi-Source Integration
+- **API Integrations:** Connects with multiple humanitarian data sources, including ReliefWeb, UN OCHA, and local NGOs, to aggregate and provide a comprehensive view.
+- **Data Aggregation:** Aggregates data from different sources for a unified user interface.
+
+### Decision Support Tools
+- **Data Visualization:** Interactive maps, charts, and dashboards to visualize crisis data and trends.
+- **Predictive Analytics:** Uses AI and machine learning to predict future trends and needs based on historical data.
+
+### Communication and Collaboration
+- **Chat Interface:** Enhanced ChatGPT integration with context-aware assistance, multilingual support, and interactive Q&A.
+- **Collaboration Tools:** Includes shared notes, task management, and real-time updates for team collaboration.
+
+### User Management and Personalization
+- **User Profiles:** Allows users to create and manage profiles with preferences and previous interactions.
+- **Custom Alerts:** Enables users to set up custom alerts and notifications for specific crises or updates.
+
+### Reporting and Documentation
+- **Automated Reporting:** Generates reports on crisis situations, resource usage, and response effectiveness.
+- **Documentation Management:** Tools for documenting actions, decisions, and lessons learned.
+
+### Security and Privacy
+- **Data Protection:** Ensures secure storage and transmission of data, adhering to relevant privacy regulations.
+- **Access Controls:** Implements role-based access controls to restrict sensitive information to authorized users.
+
+### Offline Access
+- **Offline Capabilities:** Provides offline access to critical information in areas with limited connectivity.
+
+### User Feedback and Improvement
+- **Feedback Mechanisms:** Features for users to provide feedback on the system and its features.
+- **Continuous Improvement:** Regular updates based on user feedback and evolving needs.
+
+## Installation
+
+1. **Clone the Repository**
+   ```bash
+   git clone <repository-url>
+
 
 ## Development Setup
 - In this project we are using python3.11 and poetry as our env manager.
