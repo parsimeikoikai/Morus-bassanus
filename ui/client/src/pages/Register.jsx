@@ -24,9 +24,9 @@ export default function Register() {
   });
 
   useEffect(() => {
-    if (localStorage.getItem(process.env.REACT_APP_LOCALHOST_KEY)) {
-      navigate("/");
-    }
+    // if (localStorage.getItem(process.env.REACT_APP_LOCALHOST_KEY)) {
+    //   navigate("/");
+    // }
   }, []);
 
   const handleChange = (event) => {
