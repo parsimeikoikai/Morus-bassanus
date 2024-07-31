@@ -23,7 +23,8 @@ export default function SetAvatar() {
 
   useEffect(async () => {
     if (!localStorage.getItem(process.env.REACT_APP_LOCALHOST_KEY))
-      navigate("/login");
+     // navigate("/login");
+     console.log("YYYYY")
   }, []);
 
   const setProfilePicture = async () => {
@@ -45,7 +46,8 @@ export default function SetAvatar() {
           process.env.REACT_APP_LOCALHOST_KEY,
           JSON.stringify(user)
         );
-        navigate("/");
+        console.log("XXXX")
+        // navigate("/");
       } else {
         toast.error("Error setting avatar. Please try again.", toastOptions);
       }

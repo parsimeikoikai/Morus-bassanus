@@ -1,0 +1,1 @@
+export const REACT_APP_LOCAL_KEY = 3000;

@@ -4,6 +4,7 @@ import Logo from "../assets/morus.png";
 import Plus from "../assets/plus.svg";
 import {  deleteMessage } from "../utils/APIRoutes";
 import axios from "axios";
+import {REACT_APP_LOCAL_KEY} from "../utils"
 
 
 export default function Contacts({ contacts, changeChat }) {
@@ -13,8 +14,9 @@ export default function Contacts({ contacts, changeChat }) {
   const [currentSelected, setCurrentSelected] = useState(undefined);
   useEffect(async () => {
     const data = await JSON.parse(
-      localStorage.getItem(process.env.REACT_APP_LOCALHOST_KEY)
+      localStorage.getItem(REACT_APP_LOCAL_KEY)
     );
+   
     setEmail(data.email);
     setCurrentUserName(data.username);
     setCurrentUserImage(data.avatarImage);
@@ -25,7 +27,7 @@ export default function Contacts({ contacts, changeChat }) {
   };
   const removeCurrentChat= async(index, contact) =>{
     const data = await JSON.parse(
-      localStorage.getItem(process.env.REACT_APP_LOCALHOST_KEY)
+      localStorage.getItem(REACT_APP_LOCAL_KEY)
     );
     const response = await axios.post(deleteMessage, {
       sender: data._id,
