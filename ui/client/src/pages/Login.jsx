@@ -6,6 +6,8 @@ import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { loginRoute, createAnalystAccount } from "../utils/APIRoutes";
 import { useNavigate, Link } from "react-router-dom";
+import {REACT_APP_LOCAL_KEY} from "../utils"
+
 export default function Login() {
   const navigate = useNavigate();
   const [values, setValues] = useState({ username: "", password: "" });
@@ -25,9 +27,9 @@ export default function Login() {
       }
     }
     createMainAcc();
-    // if (localStorage.getItem(process.env.REACT_APP_LOCALHOST_KEY)) {
-    //   navigate("/");
-    // }
+    if (localStorage.getItem(REACT_APP_LOCAL_KEY)) {
+      navigate("/");
+    }
 
   }, []);
 
@@ -59,10 +61,10 @@ export default function Login() {
         toast.error(data.msg, toastOptions);
       }
       if (data.status === true) {
-        // localStorage.setItem(
-        //   process.env.REACT_APP_LOCALHOST_KEY,
-        //   JSON.stringify(data.user)
-        // );
+        localStorage.setItem(
+          REACT_APP_LOCAL_KEY,
+          JSON.stringify(data.user)
+        );
 
         navigate("/");
       }

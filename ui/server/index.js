@@ -12,14 +12,14 @@ app.use(express.json());
 
 const uri = `mongodb://${process.env.MONGO_USER}:${process.env.MONGO_PASSWORD}@${process.env.MONGO_HOST}/${process.env.MONGO_DATABASE}`;
 
-// mongoose.connect(uri, { useNewUrlParser: true, useUnifiedTopology: true })
-//     .then(() => {
-//         console.log('Connected to MongoDB');
-//         // Continue with your application setup
-//     })
-//     .catch(error => {
-//         console.error('Error connecting to MongoDB:', error.message);
-//     });
+mongoose.connect(uri, { useNewUrlParser: true, useUnifiedTopology: true })
+    .then(() => {
+        console.log('Connected to MongoDB');
+        // Continue with your application setup
+    })
+    .catch(error => {
+        console.error('Error connecting to MongoDB:', error.message);
+    });
 
 mongoose
   .connect(process.env.MONGO_URL, {
