@@ -1,8 +1,23 @@
 # Morus-bassanus
 
-## Overview
-
 This repository is for deploying the light version of **Morus-bassanus**, a platform designed to provide instant support and facilitate informed decision-making for humanitarians. The system integrates with various humanitarian sources and leverages advanced AI to enhance crisis response and resource management.
+
+## Table of Contents
+
+- [Key Features](#key-features)
+  - [Crisis Information and Updates](#crisis-information-and-updates)
+  - [Multi-Source Integration](#multi-source-integration)
+  - [Decision Support Tools](#decision-support-tools)
+  - [Communication and Collaboration](#communication-and-collaboration)
+  - [User Management and Personalization](#user-management-and-personalization)
+  - [Reporting and Documentation](#reporting-and-documentation)
+  - [Security and Privacy](#security-and-privacy)
+  - [Offline Access](#offline-access)
+  - [User Feedback and Improvement](#user-feedback-and-improvement)
+- [Installation](#installation)
+- [Usage](#usage)
+- [Contributing](#contributing)
+- [License](#license)
 
 ## Key Features
 
