@@ -14,17 +14,17 @@ services:
     depends_on:
       weaviate:
         condition: service_started
-      scripts:
-        condition: service_completed_successfully
+      # scripts:
+      #   condition: service_completed_successfully
 
-  scripts:
-    build:
-      context: .
-      dockerfile: dockers/server_docker
-    entrypoint: ["python", "-m"]
-    command: ["scripts.vectorize"]
-    env_file:
-      - .env
+  # scripts:
+  #   build:
+  #     context: .
+  #     dockerfile: dockers/server_docker
+  #   entrypoint: ["python", "-m"]
+  #   command: ["scripts.vectorize"]
+  #   env_file:
+  #     - .env
 
   weaviate:
     command:
@@ -67,10 +67,10 @@ services:
       - 3000:3000
     depends_on:
       - backend
-      - react_server
+      - node_server
       - mongo
 
-  react_server:
+  node_server:
     build:
       context: .
       dockerfile: dockers/react_server_docker
@@ -81,7 +81,7 @@ services:
       PORT: ${react_server_port}
       MONGO_URL: mongodb://mongo:27017/chatbot
     ports:
-      - 5100:5100
+      - 3100:3100
     depends_on:
       - mongo
 
@@ -96,6 +96,11 @@ services:
       - MongoDB:/data/db
     ports:
       - 27017:27017
+    healthcheck:
+      test: ["CMD", "mongo", "--eval", "db.runCommand({ ping: 1 })"]
+      interval: 30s
+      timeout: 10s
+      retries: 5
 
 
 volumes:
