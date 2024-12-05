@@ -15,6 +15,7 @@ export default function ChatContainer({ currentChat, socket }) {
   const [isLoading, setIsLoading] = useState(true);
 
   const apiUrl = 'http://52.3.250.51:9000/ask';
+  //TODO : Replace with URL
 
   // eslint-disable-next-line react-hooks/exhaustive-deps
   useEffect(async () => {
