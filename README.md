@@ -62,8 +62,6 @@ This repository is for deploying the light version of **Morus-bassanus**, a plat
    ```bash
    git clone git clone https://github.com/parsimeikoikai/Morus-bassanus.git
 
-
-
 ## Development Setup
 - In this project we are using python3.11 and poetry as our env manager.
 - First, install poetry from this installation [guide](https://python-poetry.org/docs/#installation).
